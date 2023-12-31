@@ -132,6 +132,18 @@ def main():
     workflow_table.add_row(["Days Left in Cycle: " + str(billing_days_left), "", "", "", ""])
     print(summary_table)
     print(workflow_table)
+
+    # output files as json
+    with open("summary.json", "w") as summaryJson:
+        summaryJson.write(summary_table.get_json_string())
+    with open("workflow.json", "w") as workflowJson:
+        workflowJson.write(workflow_table.get_json_string())
+
+    with open('summary.csv', 'w', newline='') as summaryCsv:
+        summaryCsv.write(summary_table.get_string())
+    with open('workflow.csv', 'w', newline='') as workflowCsv:
+        workflowCsv.write(workflow_table.get_string())
+
     # we should throw an error if we are running out of minutes as a warning
     # minutes buffer is how low the minutes should get before failing and raising an alarm
     if remaining_minutes < int(raise_alarm_remaining_minutes):

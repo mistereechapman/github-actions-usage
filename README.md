@@ -11,8 +11,11 @@ This GitHub Action can:
 - show totals for both of the above
 - print out the number of remaining days in the billing cycle
 - be run locally with Docker or python
+- write files locally for collecting(CSV+JSON)
 
 ## What is the Reason for this Action?
+
+Original story below - I just wanted to make this better. 
 
 This action came about because a project I was working on kept running out of free minutes very quickly. As an admin I
 was asking teams to reduce usage, but they had no idea which repos and workflows were clocking up the minutes. Worse,
@@ -103,6 +106,8 @@ in the prettyprint formatted ASCII tables like this:
 +--------------------------------+---------------------+--------+-------+---------+
 ```
 
+It also writes the files to disc for collection by external services
+
 ## How Does it Work?
 
 The action calls GitHub REST API endpoints to get the required information, and then prettyprint for formatting.
@@ -149,7 +154,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: GitHub Actions Usage Audit
-        uses: fergusmacd/github-action-usage@daff7e5517914546a1e39fcc22f476e1471853f6 # use a commit SHA
+        uses: mistereechapman/github-actions-usage@v1.0.0
         # pass user input as arguments
         with:
           organisation: ${{secrets.ORGANISATION}}

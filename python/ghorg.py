@@ -24,7 +24,7 @@ def getreposfromorganisation(org):
     json_data = json.loads(response.text)
 
     logger.debug(f'Data from org: {json_data}')
-    total_private_repos = json_data["total_private_repos"]
+    total_private_repos = json_data["total_private_repos"] + json_data["owned_private_repos"]
     logger.info(f"Total private repos: {total_private_repos}")
     total_public_repos = json_data["public_repos"]
     logger.info(f'Total public repos: {total_public_repos}')
