@@ -1,4 +1,4 @@
-name: "GitHub Actions Usage Audit"
+name: "Actions Usage Audit"
 description: "Creates tables of GitHub Action usage by repo and workflow"
 author: "mistereechapman"
 inputs:
