@@ -1,6 +1,6 @@
 name: "GitHub Actions Usage Audit"
 description: "Creates tables of GitHub Action usage by repo and workflow"
-author: "Fergus MacDermot"
+author: "mistereechapman"
 inputs:
   organisation:
     description: "The organisation name that we want to analyse"
